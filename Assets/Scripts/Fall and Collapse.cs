@@ -24,16 +24,17 @@ public class FallandCollapse : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    // This method is called when the object collides with another object
+    void OnCollisionEnter(Collision collision)
     {
         // Check if the object has hit the ground
-        if (transform.position.y <= 0.1f)
+        if (collision.gameObject.name == "Plane")
         {
             Collapse();
         }
     }
 
+    // Method to handle the collapse of the object
     void Collapse()
     {
         // Disable the Rigidbody to stop further physics interactions
